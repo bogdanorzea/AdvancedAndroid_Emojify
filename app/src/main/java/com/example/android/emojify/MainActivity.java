@@ -39,8 +39,6 @@ import android.widget.Toast;
 import java.io.File;
 import java.io.IOException;
 
-import static com.example.android.emojify.Emojifier.detectFaces;
-
 public class MainActivity extends AppCompatActivity {
 
     private static final int REQUEST_IMAGE_CAPTURE = 1;
@@ -183,8 +181,8 @@ public class MainActivity extends AppCompatActivity {
         // Resample the saved image to fit the ImageView
         mResultsBitmap = BitmapUtils.resamplePic(this, mTempPhotoPath);
 
-        int numberOfFaces = detectFaces(this, mResultsBitmap);
-        Toast.makeText(this, "I have detected:" + numberOfFaces , Toast.LENGTH_SHORT).show();
+        // Detect the faces
+        Emojifier.detectFaces(this, mResultsBitmap);
 
         // Set the new bitmap to the ImageView
         mImageView.setImageBitmap(mResultsBitmap);

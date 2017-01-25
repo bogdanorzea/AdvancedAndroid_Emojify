@@ -73,6 +73,8 @@ public class MainActivity extends AppCompatActivity {
 
         // Bind the views
         ButterKnife.bind(this);
+
+        // TODO (2): Set up Timber
     }
 
     /**

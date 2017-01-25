@@ -45,6 +45,8 @@ import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
 
+    // TODO (2): Replace all View declarations with Butterknife annotations
+
     private static final int REQUEST_IMAGE_CAPTURE = 1;
     private static final int REQUEST_STORAGE_PERMISSION = 1;
 
@@ -69,17 +71,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Bind the views
         ButterKnife.bind(this);
-
     }
 
     /**
      * OnClick method for "Emojify Me!" Button. Launches the camera app.
-     *
-     * @param view The emojify me button.
      */
     @OnClick(R.id.emojify_button)
-    public void emojifyMe(View view) {
+    public void emojifyMe() {
         // Check for the external storage permission
         if (ContextCompat.checkSelfPermission(this,
                 Manifest.permission.WRITE_EXTERNAL_STORAGE)
@@ -190,13 +190,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+
     /**
      * OnClick method for the save button.
-     *
-     * @param view The save button.
      */
     @OnClick(R.id.save_button)
-    public void saveMe(View view) {
+    public void saveMe() {
         // Delete the temporary image file
         BitmapUtils.deleteImageFile(this, mTempPhotoPath);
 
@@ -206,11 +205,9 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * OnClick method for the share button, saves and shares the new bitmap.
-     *
-     * @param view The share button.
      */
     @OnClick(R.id.share_button)
-    public void shareMe(View view) {
+    public void shareMe() {
         // Delete the temporary image file
         BitmapUtils.deleteImageFile(this, mTempPhotoPath);
 
@@ -223,11 +220,9 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * OnClick for the clear button, resets the app to original state.
-     *
-     * @param view The clear button.
      */
     @OnClick(R.id.clear_button)
-    public void clearImage(View view) {
+    public void clearImage() {
         // Clear the image and toggle the view visibility
         mImageView.setImageResource(0);
         mEmojifyButton.setVisibility(View.VISIBLE);

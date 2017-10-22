@@ -42,10 +42,9 @@ import java.io.IOException;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import timber.log.Timber;
 
 public class MainActivity extends AppCompatActivity {
-
-    // TODO (2): Replace all View declarations with Butterknife annotations
 
     private static final int REQUEST_IMAGE_CAPTURE = 1;
     private static final int REQUEST_STORAGE_PERMISSION = 1;
@@ -74,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
         // Bind the views
         ButterKnife.bind(this);
 
-        // TODO (2): Set up Timber
+        Timber.plant(new Timber.DebugTree());
     }
 
     /**
